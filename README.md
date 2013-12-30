@@ -1,5 +1,5 @@
 jquery.extend.js
-================
+=
 
 jQuery extension library.
 
@@ -9,4 +9,4 @@ $.createEvent()
 -
 This function allows you to create custom events and assign event handlers to them using the default jQuery on() method.
 
-There are custom events in the custom-events.js as examples of how to use it.
+There are custom events in the file custom-events.js, showing examples of how to use it.
