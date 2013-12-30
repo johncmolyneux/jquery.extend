@@ -39,7 +39,7 @@ $.createEvent("imagesloaded", function (element, callback) {
 });
 
 // fires when the enter key is pressed within a selected element (must accept keyup)
-$.createEvent("enter", function (element, callback) {
+$.createEvent("enterkey", function (element, callback) {
     var $element = $(element);
     $element.on("keyup", function(e) {
         var code = (e.keyCode ? e.keyCode : e.which);
