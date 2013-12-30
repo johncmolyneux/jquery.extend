@@ -1,5 +1,5 @@
-jquery.extend
-=============
+jquery.extend.js
+================
 
 jQuery extension library.
 
