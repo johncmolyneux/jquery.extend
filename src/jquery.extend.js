@@ -1,7 +1,7 @@
 // custom event container
 $.fn._customEvents = {};
-$.fn.createEvent = function (name, notifier) {
-    $.fn._customEvents[name] = notifier;
+$.fn.createEvent = function (trigger, notifier) {
+    $.fn._customEvents[trigger] = notifier;
 };
 
 // extend .on() so custom events can be handled
