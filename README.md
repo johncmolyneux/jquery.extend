@@ -24,7 +24,7 @@ This allows you to add debug logging to your code and enable and disable it at a
 
 Also, when debugging is enabled all AJAX requests will be logged so you can inspect the data that was sent.
 
-**debug.enabled** sets/gets whether to show debug messages or not (browser and site-specific, persisting from page to page)
+**debug.enabled** sets/gets whether to show debug messages or not
 
 **debug.dir()** as per console.dir() but only shown if debug is enabled
 
