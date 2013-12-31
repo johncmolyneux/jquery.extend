@@ -54,11 +54,10 @@ window.console = {
 };
 
 // if debugging is enabled, log all ajax requests options
-$(function () {
-    $(document).ajaxSend(function (event, jqXHR, ajaxOptions) {
-        if (debug.enabled) {
-            console.dir(ajaxOptions);
-        }
-    });
+$(document).ajaxSend(function (event, jqXHR, ajaxOptions) {
+    if (debug.enabled) {
+        console.log(ajaxOptions.url);
+        console.log(ajaxOptions);
+    }
 });
 
