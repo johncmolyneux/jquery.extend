@@ -5,11 +5,18 @@ JavaScript & jQuery extension library.
 
 This library extends JavaScript & jQuery by adding new functions that I have created and overriding some existing ones to add new features.  These will be updated when I make something new and listed below.
 
+
 $.createEvent()
 -
 This function allows you to create custom events and assign event handlers to them using the default jQuery on() method.
 
 There are custom events in the file custom-events.js, showing examples of how to use it.
+
+
+$.data()
+-
+A trigger has been added to the jQuery data() function.  You can now capture data change events using .on("datachange", function(event, name, value).  Usefull for handling data changes for many elements without having to add a function call in many places, and also for handling data changes caused by 3rd party libraries and plugins.
+
 
 debug
 -
