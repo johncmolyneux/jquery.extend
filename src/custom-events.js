@@ -1,4 +1,3 @@
-
 // fires when child images are loaded within a selected element
 $.createEvent("imagesloaded", function (element, callback) {
     var $element = $(element);
@@ -28,4 +27,4 @@ $.createEvent("enterkey", function (element, callback) {
             callback();
         }
     });    
-})
+});
