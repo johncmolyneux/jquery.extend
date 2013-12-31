@@ -15,3 +15,50 @@ $.fn.on = function () {
     }
     return $.fn._on.apply(this, arguments);
 };
+
+// global debug object that defines whether or not to show console messages
+var debug = {
+    get enabled() {
+        return localStorage.getItem("_debug") === "true";
+    },
+    set enabled(value) {
+        localStorage.setItem("_debug", value);
+    }
+}
+
+// Check for console and create empty functions if it doesn't exist
+if (typeof console == "undefined") {
+    window.console = {
+        dir: function () { },
+        error: function () { },
+        log: function () { },
+        warn: function () { }
+    };
+}
+
+// override console functions so that they only work if debug is enabled
+window._console = window.console;
+window.console = {
+    dir: function () {
+        if (debug.enabled) _console.dir.apply(_console, arguments);
+    },
+    error: function () {
+        if (debug.enabled) _console.error.apply(_console, arguments);
+    },
+    log: function () {
+        if (debug.enabled) _console.log.apply(_console, arguments);
+    },
+    warn: function () {
+        if (debug.enabled) _console.warn.apply(_console, arguments);
+    }
+};
+
+// if debugging is enabled, log all ajax requests options
+$(function () {
+    $(document).ajaxSend(function (event, jqXHR, ajaxOptions) {
+        if (debug.enabled) {
+            console.dir(ajaxOptions);
+        }
+    });
+});
+
