@@ -1,3 +1,6 @@
+// this is needed to force document.ready on some browsers when using back button
+window.onunload = function (){};
+
 // custom event container
 $._customEvents = {};
 $.createEvent = function (trigger, notifier) {
