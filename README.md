@@ -17,6 +17,6 @@ debug
 
 **debug.enabled = false; // all console messages will be ignored**
 
-This allows you to add debug logging to your code and then enable it and disable it at any time through the console, just on the browser you are using.  (It means you can add debug code to your scripts and no-one will ever see it.)
+This allows you to add debug logging to your code (using console.log, console.dir etc.) and then enable it and disable it at any time through the console, just on the browser you are using.  (It means you can add debug code to your scripts and no-one will ever see it.)
 
 Also, when debugging is enabled all AJAX requests will be logged so you can inspect the data that was sent.
