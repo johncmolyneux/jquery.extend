@@ -59,3 +59,14 @@ $(document).ajaxSend(function (event, jqXHR, ajaxOptions) {
     }
 });
 
+// extend .data() and add a custom trigger "datachange"
+$.fn._data = $.fn.data;
+$.fn.data = function () {
+    var result = $.fn._data.apply(this, arguments);
+    if (arguments.length > 1) {
+        $(this).trigger("datachange", arguments);
+    }
+    return result;
+};
+
+
