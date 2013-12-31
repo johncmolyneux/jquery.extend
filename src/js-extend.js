@@ -19,16 +19,6 @@ $.fn.on = function () {
     return $.fn._on.apply(this, arguments);
 };
 
-// global debug object that defines whether or not to show console messages
-var debug = {
-    get enabled() {
-        return localStorage.getItem("_debug") === "true";
-    },
-    set enabled(value) {
-        localStorage.setItem("_debug", value);
-    }
-}
-
 // Check for console and create empty functions if it doesn't exist
 if (typeof console == "undefined") {
     window.console = {
@@ -39,22 +29,27 @@ if (typeof console == "undefined") {
     };
 }
 
-// override console functions so that they only work if debug is enabled
-window._console = window.console;
-window.console = {
+// global debug object
+window.debug = {
+    get enabled() {
+        return localStorage.getItem("_debug") === "true";
+    },
+    set enabled(value) {
+        localStorage.setItem("_debug", value);
+    },
     dir: function () {
-        if (debug.enabled) _console.dir.apply(_console, arguments);
+        if (this.enabled) console.dir.apply(console, arguments);
     },
     error: function () {
-        if (debug.enabled) _console.error.apply(_console, arguments);
+        if (this.enabled) console.error.apply(console, arguments);
     },
     log: function () {
-        if (debug.enabled) _console.log.apply(_console, arguments);
+        if (this.enabled) console.log.apply(console, arguments);
     },
     warn: function () {
-        if (debug.enabled) _console.warn.apply(_console, arguments);
+        if (this.enabled) console.warn.apply(console, arguments);
     }
-};
+}
 
 // if debugging is enabled, log all ajax requests options
 $(document).ajaxSend(function (event, jqXHR, ajaxOptions) {
