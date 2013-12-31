@@ -1,9 +1,9 @@
-jquery.extend.js
+js-extend.js
 =
 
-jQuery extension library.
+JavaScript & jQuery extension library.
 
-This library extends jQuery by adding new functions that I have created.  These will be updated and listed below.
+This library extends JavaScript & jQuery by adding new functions that I have created.  These will be updated and listed below.
 
 $.createEvent()
 -
