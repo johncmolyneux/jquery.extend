@@ -27,12 +27,37 @@ This allows you to add debug logging to your code and enable and disable it at a
 
 Also, when debugging is enabled all AJAX requests will be logged so you can inspect the data that was sent.
 
-**debug.enabled** sets/gets whether to show debug messages or not
+**debug.enabled**
 
-**debug.dir()** as per console.dir() but only shown if debug is enabled
+*Set or get whether to show debug messages or not*
+```JavaScript
+// get
+console.log(debug.enabled);
 
-**debug.error()** as per console.error() but only shown if debug is enabled
+// set
+debug.enabled = true;
+```
+**debug.dir()**
 
-**debug.log()** as per console.log() but only shown if debug is enabled
+*As per console.dir() but only shown if debug is enabled*
+```JavaScript
+debug.dir(obj);
+```
+**debug.error()**
 
-**debug.warn()** as per console.warn() but only shown if debug is enabled
+*As per console.error() but only shown if debug is enabled*
+```JavaScript
+debug.error("An error occured in function x : " + arguments);
+```
+**debug.log()**
+
+*As per console.log() but only shown if debug is enabled*
+```JavaScript
+debug.log("debug logging information");
+```
+**debug.warn()**
+
+*As per console.warn() but only shown if debug is enabled*
+```JavaScript
+debug.warn("This is a warning message.  You'll probably ignore it.");
+```
