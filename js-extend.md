@@ -17,7 +17,7 @@ $.createEvent("enterkey", function (element, callback) {
 *Here is an example of using the above custom event*
 ```JavaScript
 $("input").on("enterkey", function(event) {
-  console.log("enter key pressed : " + $(this).val());
+    console.log("enter key pressed : " + $(this).val());
 });
 ```
 
