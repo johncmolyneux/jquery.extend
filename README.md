@@ -7,9 +7,9 @@ This library extends JavaScript & jQuery by adding new functions that I have cre
 
 More information about js-extend can be found here...
 
-[a relative link](js-extend.md)
+[js-extend](js-extend.md)
 
 Associated library information can be found here...
 
-[a relative link](custom-events.md)
+[custom-events](custom-events.md)
 
