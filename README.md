@@ -1,6 +1,6 @@
 js-extend : JavaScript & jQuery extension library
 -
-This library extends JavaScript and jQuery by adding new functions and overriding some existing ones to add new features.
+This library extends JavaScript & jQuery by adding new functions and overriding some existing ones to add new features.
 
 For more information and usage examples, see the js-extend readme file here...
 
