@@ -1,4 +1,4 @@
-This is a list of the custom events added in custom-events.js.  This file can only be used in conjunction with js-extend.js, which adds the functionality required to create custom events and add them to the jQuery on() function.
+This is a list of the custom events added in custom-events.js.  This library can only be used in conjunction with js-extend, which adds the functionality required to create custom events and add them to the jQuery on() function.
 
 datachanged
 -
