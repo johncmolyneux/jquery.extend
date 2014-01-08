@@ -2,8 +2,24 @@ $.createEvent()
 -
 This function allows you to create custom events and assign event handlers to them using the default jQuery on() method.
 
-There are custom events in the file custom-events.js, showing examples of how to use it.
-
+*This example of creating a custom event is taken from [custom-events](custom-events.js)*
+```JavaScript
+$.createEvent("enterkey", function (element, callback) {
+    var $element = $(element);
+    $element.on("keyup", function(e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 13) {
+            callback();
+        }
+    });    
+});
+```
+*Here is an example of using the above custom event*
+```JavaScript
+$("input").on("enterkey", function(event) {
+  console.log("enter key pressed : " + $(this).val());
+});
+```
 
 debug
 -
