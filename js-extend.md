@@ -53,7 +53,7 @@ debug.error("An error occured in function x : " + arguments);
 
 *As per console.log() but only shown if debug is enabled*
 ```JavaScript
-debug.log("debug logging information");
+debug.log("Debug logging information");
 ```
 **debug.warn()**
 
