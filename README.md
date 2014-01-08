@@ -15,7 +15,7 @@ There are custom events in the file custom-events.js, showing examples of how to
 
 $.data()
 -
-A trigger has been added to the jQuery data() function.  You can now capture data change events using .on("datachange", function(event, name, value).  Usefull for handling data changes for many elements without having to add a function call in many places, and also for handling data changes caused by 3rd party libraries and plugins.
+A trigger has been added to the jQuery data() function.  You can now capture data change events using .on("datachange", function(event, name, value).  Useful for handling data changes for many elements without having to add a function call in many places, and also for handling data changes caused by 3rd party libraries and plugins.  (This is in custom-events, not js-extend.)
 
 
 debug
