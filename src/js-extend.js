@@ -3,12 +3,14 @@ window.onunload = function (){};
 
 // container object for global data
 window._jsExtend = {
-	$: {},
-	customEvents: []
+	$: {}
 };
 
 // custom event container
 $.createEvent = function (trigger, notifier) {
+	if (typeof (_jsExtend.customEvents) == "undefined") {
+		_jsExtend.customEvents = [];
+	}
 	_jsExtend.customEvents[trigger] = notifier;
 };
 
