@@ -1,22 +1,28 @@
 // this is needed to force document.ready on some browsers when using back button
 window.onunload = function (){};
 
+// container object for global data
+window._jsExtend = {
+	$: {},
+	customEvents: [],
+	queryString: []
+};
+
 // custom event container
-$._customEvents = {};
 $.createEvent = function (trigger, notifier) {
-    $._customEvents[trigger] = notifier;
+    _jsExtend.customEvents[trigger] = notifier;
 };
 
 // extend .on() so custom events can be handled
-$.fn._on = $.fn.on;
+_jsExtend.$.on = $.fn.on;
 $.fn.on = function () {
     for (var event in $._customEvents) {
         if (event == arguments[0]) {
-            $._customEvents[event](this, arguments[1]);
+            _jsExtend.customEvents[event](this, arguments[1]);
             return this;  // return the element so we can chain as normal
         }
     }
-    return $.fn._on.apply(this, arguments);
+    return _jsExtend.$.on.apply(this, arguments);
 };
 
 // Check for console and create empty functions if it doesn't exist
@@ -59,4 +65,15 @@ $(document).ajaxSend(function (event, jqXHR, ajaxOptions) {
     }
 });
 
-
+// access query string values by name
+function queryString(name) {
+	if (!_jsExtend.queryString.length) {
+	    var queryString = window.location.search.replace("?", "").split("&");
+	    for (var i = 0; i < queryString.length; i++) {
+	        var pair = queryString[i].split("=");
+	        if (pair.length != 2) continue;
+	        _jsExtend.queryString[pair[0]] = pair[1];
+	    }
+	}
+	return _jsExtend.queryString[name];
+}
