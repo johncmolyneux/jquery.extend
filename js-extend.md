@@ -61,3 +61,10 @@ debug.log("Debug logging information");
 ```JavaScript
 debug.warn("This is a warning message.  You'll probably ignore it.");
 ```
+
+queryString
+-
+Access values in the query string, similar to server-side languages.
+```JavaScript
+console.log(queryString("name"));
+```
