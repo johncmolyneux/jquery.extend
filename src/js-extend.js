@@ -85,15 +85,16 @@ function queryString(name) {
 // If you use jQuery() then it uses the original jQuery selector and does not do any caching or look in the cache.
 jQuery.noConflict();
 $ = function(selector, context, root) {
-    context = context || window.document;
-    if (typeof(window.__jquerySelectorCache) === "undefined") {
-        window.__jquerySelectorCache = {};
-    }
+    if (context === void 0) context = window.document;
+    if (window.__jquerySelectorCache === void 0) window.__jquerySelectorCache = {};
     var cachedSelector = selector + "|" + context + "|" + root;
     var cachedResult = window.__jquerySelectorCache[cachedSelector];
-    if (typeof(cachedResult) === "undefined") {
+    if (cachedResult === void 0) {
         cachedResult = new jQuery.fn.init(selector, context, root);
         window.__jquerySelectorCache[cachedSelector] = cachedResult;
+    }
+    else {
+        console.log("returning cached result");
     }
     return cachedResult;
 };
