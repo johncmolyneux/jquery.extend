@@ -81,8 +81,8 @@ function queryString(name) {
 }
 
 // Override the jQuery selector with a version that caches all results and does not query the DOM for them again.
-// This needs work before it should be used as it does not allow for the fact that elements will change on the page.
-// I need to add a way to choose between the original and the extended selectors
+// If you use $() then it will cache the results and return them if the same selector and context is used again.
+// If you use jQuery() then it uses the original jQuery selector and does not do any caching or look in the cache.
 jQuery.noConflict();
 $ = function(selector, context, root) {
     context = context || window.document;
