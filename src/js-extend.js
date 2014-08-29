@@ -80,23 +80,19 @@ function queryString(name) {
 	return _jsExtend.queryString[name];
 }
 
-// Override the jQuery selector with a version that caches all results and does not query the DOM for them again.
-// If you use $() then it will cache the results and return them if the same selector and context is used again.
-// If you use jQuery() then it uses the original jQuery selector and does not do any caching or look in the cache.
-jQuery.noConflict();
-$ = function(selector, context, root) {
+// Caching version of the jQuery selector that does not query the DOM for the same selector & context again.
+// Use $cache() to use the automatic caching selector, and use $() as normal for the non-caching selector.
+window.$cache = function(selector, context, root) {
     if (context === void 0) context = window.document;
     if (window.__jquerySelectorCache === void 0) window.__jquerySelectorCache = {};
-    var cachedSelector = selector + "|" + context + "|" + root;
+    var cachedSelector = selector + "|" + context;
     var cachedResult = window.__jquerySelectorCache[cachedSelector];
     if (cachedResult === void 0) {
         cachedResult = new jQuery.fn.init(selector, context, root);
         window.__jquerySelectorCache[cachedSelector] = cachedResult;
     }
     else {
-        console.log("returning cached result");
+        debug.log("returning cached result");
     }
     return cachedResult;
 };
-$.fn = $.prototype = jQuery.fn;
-jQuery.extend($, jQuery);
