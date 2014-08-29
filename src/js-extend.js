@@ -79,3 +79,23 @@ function queryString(name) {
 	}
 	return _jsExtend.queryString[name];
 }
+
+// Override the jQuery selector with a version that caches all results and does not query the DOM for them again.
+// This needs work before it should be used as it does not allow for the fact that elements will change on the page.
+// I need to add a way to choose between the original and the extended selectors
+jQuery.noConflict();
+$ = function(selector, context, root) {
+    context = context || window.document;
+    if (typeof(window.__jquerySelectorCache) === "undefined") {
+        window.__jquerySelectorCache = {};
+    }
+    var cachedSelector = selector + "|" + context + "|" + root;
+    var cachedResult = window.__jquerySelectorCache[cachedSelector];
+    if (typeof(cachedResult) === "undefined") {
+        cachedResult = new jQuery.fn.init(selector, context, root);
+        window.__jquerySelectorCache[cachedSelector] = cachedResult;
+    }
+    return cachedResult;
+};
+$.fn = $.prototype = jQuery.fn;
+jQuery.extend($, jQuery);
